@@ -56,6 +56,12 @@
     STAssertEqualObjects(@"[0]", [writer stringWithObject:[NSArray arrayWithObject:[NSNumber numberWithInt:0]]], nil);
     STAssertEqualObjects(@"[0]", [writer stringWithObject:[NSArray arrayWithObject:[NSNumber numberWithInt:-0]]], nil);
 		
+    // Test writing scalars:
+    STAssertEqualObjects(@"\"foo\"", [writer stringWithObject:@"foo"], nil);
+    STAssertEqualObjects(@"123456", [writer stringWithObject:[NSNumber numberWithInt:123456]], nil);
+    STAssertEqualObjects(@"true", [writer stringWithObject:[NSNumber numberWithBool:YES]], nil);
+    STAssertEqualObjects(@"null", [writer stringWithObject:[NSNull null]], nil);
+
 	/** TODO: I cannot get these tests to pass for the libjsontests target.
 	 
     STAssertEqualObjects(@"[0]", [writer stringWithObject:[NSArray arrayWithObject:[NSDecimalNumber numberWithDouble:0]]], nil);

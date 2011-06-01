@@ -95,6 +95,15 @@
 	else if ([object isKindOfClass:[NSArray class]])
 		ok = [streamWriter writeArray:object];
 		
+	else if ([object isKindOfClass:[NSString class]])
+		ok = [streamWriter writeString:object];
+
+	else if ([object isKindOfClass:[NSNumber class]])
+		ok = [streamWriter writeNumber:object];
+
+	else if ([object isKindOfClass:[NSNull class]])
+		ok = [streamWriter writeNull];
+
 	else if ([object respondsToSelector:@selector(proxyForJson)])
 		return [self dataWithObject:[object proxyForJson]];
 	else {

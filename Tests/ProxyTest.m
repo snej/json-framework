@@ -92,10 +92,6 @@
     STAssertEqualObjects([writer stringWithObject:[NSArray arrayWithObject:[True new]]], @"[true]", nil);
 }
 
-- (void)testUnsupportedWithProxyWithoutWrapper {
-    STAssertNil([writer stringWithObject:[True new]], nil);
-}
-
 - (void)testUnsupportedWithNestedProxy {
     STAssertEqualObjects([writer stringWithObject:[NSArray arrayWithObject:[Bool new]]], @"[[true,false]]", nil);
 }
